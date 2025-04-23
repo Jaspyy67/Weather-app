@@ -30,13 +30,14 @@ Plan ahead with a concise forecast featuring:
 * Weather descriptions for each period
 * Weather condition icons
 
+
 ## Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/weather-app.git
+### Clone the repo
 
-# Navigate to the project directory
+```bash
+git clone https://github.com/yourusername/weather-app.git
 cd weather-app
 
 # Install dependencies
@@ -47,3 +48,69 @@ export OPENWEATHER_API_KEY="your_api_key_here"
 
 # Run the application
 python main.py
+```markdown
+
+## 🤝 Contributing
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/yourusername/weather-app.git
+cd weather-app
+```
+
+### 2. Set up the environment
+(Optional but recommended to use a virtual environment)
+```bash
+# Create and activate a virtual environment
+python -m venv venv
+
+# On macOS/Linux
+source venv/bin/activate
+
+# On Windows
+venv\Scripts\activate
+```
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure API key
+Set your OpenWeatherMap API key as an environment variable:
+
+```bash
+# On macOS/Linux
+export OPENWEATHER_API_KEY="your_api_key_here"
+
+# On Windows
+set OPENWEATHER_API_KEY="your_api_key_here"
+```
+
+### 5. Run the application
+```bash
+python main.py
+```
+
+### 6. Run the tests
+```bash
+pytest
+```
+
+### 7. Submit a pull request
+To contribute to the Weather App:
+
+1. **Fork** the repository
+2. **Create** a feature branch:
+    ```bash
+    git checkout -b feature/amazing-feature
+    ```
+3. **Commit** your changes:
+    ```bash
+    git commit -m 'Add some amazing feature'
+    ```
+4. **Push** to your branch:
+    ```bash
+    git push origin feature/amazing-feature
+    ```
+5. **Open a Pull Request** to the main branch
