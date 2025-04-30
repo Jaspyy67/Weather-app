@@ -17,7 +17,6 @@ class WeatherApp:
         self.create_widgets()
 
     def create_widgets(self):
-        # Frame for input area
         self.input_frame = tk.Frame(self.root, bg="skyblue")
         self.input_frame.grid(row=0, column=0, pady=20, padx=20)
 
@@ -30,7 +29,6 @@ class WeatherApp:
         self.fetch_button = tk.Button(self.input_frame, text="Get Weather", font=("Helvetica", 12), command=self.show_weather, bg="#4CAF50", fg="white", relief="raised", width=20)
         self.fetch_button.grid(row=2, column=0, pady=10)
 
-        # Frame for weather display
         self.weather_frame = tk.Frame(self.root, bg="skyblue")
         self.weather_frame.grid(row=1, column=0, pady=20, padx=20)
 
@@ -39,32 +37,31 @@ class WeatherApp:
 
         self.weather_display.config(state=tk.DISABLED)
 
-        # Frame for forecast button and icon
+
         self.forecast_frame = tk.Frame(self.root, bg="skyblue")
         self.forecast_frame.grid(row=2, column=0, pady=10, padx=20, sticky="w")
 
         self.forecast_button = tk.Button(self.forecast_frame, text="Show 3-Day Forecast", font=("Helvetica", 12), command=self.show_forecast, bg="#FF9800", fg="white", relief="raised")
         self.forecast_button.grid(row=0, column=0, padx=10, pady=10)
 
-        # Frame for weather icon
+
         self.icon_frame = tk.Frame(self.root, bg="skyblue")
         self.icon_frame.grid(row=3, column=0, pady=10)
 
         self.icon_label = tk.Label(self.icon_frame, bg="skyblue")
         self.icon_label.grid(row=0, column=0)
 
-        # Frame for loading message (using grid)
+
         self.loading_label = tk.Label(self.root, text="Loading...", font=("Helvetica", 14), fg="blue", bg="skyblue")
         self.loading_label.grid(row=4, column=0, pady=10)
-        self.loading_label.grid_remove()  # Initially hide the loading label
-
+        self.loading_label.grid_remove() 
     def show_weather(self):
         city = self.city_entry.get()
         
         if city:
-            self.loading_label.grid()  # Show loading label
-            weather_info, icon_url = get_weather(city, self.api_key, forecast=False)  # Don't fetch forecast yet
-            self.loading_label.grid_remove()  # Hide loading label
+            self.loading_label.grid()  
+            weather_info, icon_url = get_weather(city, self.api_key, forecast=False)  
+            self.loading_label.grid_remove()  
             
             self.weather_display.config(state=tk.NORMAL)
             self.weather_display.delete(1.0, tk.END)
@@ -79,9 +76,9 @@ class WeatherApp:
         city = self.city_entry.get()
         
         if city:
-            self.loading_label.grid()  # Show loading label
-            forecast_info = get_weather(city, self.api_key, forecast=True)  # Fetch forecast
-            self.loading_label.grid_remove()  # Hide loading label
+            self.loading_label.grid() 
+            forecast_info = get_weather(city, self.api_key, forecast=True) 
+            self.loading_label.grid_remove()  
             
             self.weather_display.config(state=tk.NORMAL)
             self.weather_display.delete(1.0, tk.END)

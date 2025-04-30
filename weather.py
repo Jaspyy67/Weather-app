@@ -36,21 +36,21 @@ def get_weather(city, api_key, forecast=False):
         else:
             forecast_info = f"Weather forecast for the next 3 days:\n"
             
-            # Get the data for the next 3 days (forecast returns every 3 hours)
+
             days = ['Morning (6AM)', 'Afternoon (12PM)', 'Evening (6PM)']
             day_count = 0
             for day in range(0, 3):
                 forecast_info += f"\nDay {day+1}:\n"
-                for time_slot in range(3):  # Morning, Afternoon, Evening
-                    # Get the closest time index for each period (6AM, 12PM, 6PM)
-                    index = day_count * 8 + time_slot  # OpenWeather API returns every 3 hours
+                for time_slot in range(3): 
+
+                    index = day_count * 8 + time_slot 
                     timestamp = datetime.utcfromtimestamp(data['list'][index]['dt'])
                     temp = data['list'][index]['main']['temp']
                     description = data['list'][index]['weather'][0]['description']
 
                     forecast_info += f"{days[time_slot]} - Temp: {temp}°C, {description.capitalize()}\n"
                 
-                day_count += 1  # Move to the next day (every 8 intervals is a day)
+                day_count += 1 
 
             return forecast_info, f"http://openweathermap.org/img/wn/{data['list'][0]['weather'][0]['icon']}@2x.png"
 
